@@ -33,7 +33,7 @@ internal class PersonViewModel : ObservableObject
 			OnPropertyChanged(nameof(DisplayName));
 		}
 	}
-
+	
 	public string DisplayName =>
-		$"{(string.IsNullOrEmpty(FirstName) ? "(No first name)" : FirstName)}, {(string.IsNullOrEmpty(LastName) ? "(No last name)" : LastName)}";
+		$"{(string.IsNullOrEmpty(FirstName) || string.IsNullOrWhiteSpace(FirstName) ? "(No first name)" : FirstName)}, {(string.IsNullOrEmpty(LastName) || string.IsNullOrWhiteSpace(LastName) ? "(No last name)" : LastName)}";
 }

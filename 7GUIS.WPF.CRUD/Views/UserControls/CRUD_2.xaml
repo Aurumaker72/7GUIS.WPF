@@ -27,7 +27,8 @@
         </StackPanel>
 
         <Grid Grid.Row="1" Margin="5">
-            <ListView ItemsSource="{Binding FilteredPersonViewModels}"
+            <ListView
+                ItemsSource="{Binding FilteredPersonViewModels}"
                       SelectedItem="{Binding SelectedPersonViewModel, Mode=OneWayToSource}">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="{x:Type viewModels:PersonViewModel}">
@@ -49,13 +50,9 @@
                                      Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                      Margin="5 0 0 0" />
 
-                            <TextBlock Grid.Column="1" VerticalAlignment="Center"
-                                       Visibility="{Binding ElementName=Edit_ToggleButton, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
-                                       Text="{Binding FirstName}" />
-                            <TextBlock Grid.Column="2" VerticalAlignment="Center"
-                                       Visibility="{Binding ElementName=Edit_ToggleButton, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
-                                       Text="{Binding LastName}"
-                                       Margin="5 0 0 0" />
+                            <TextBlock Grid.Column="1" Grid.ColumnSpan="2"  VerticalAlignment="Center"
+                            Visibility="{Binding ElementName=Edit_ToggleButton, Path=IsChecked, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
+                            Text="{Binding DisplayName}" />
 
                             <Button Grid.Column="3" HorizontalAlignment="Right"
                                     Command="{Binding Source={StaticResource DataContextProxy}, Path=DataSource.DeletePersonViewModelCommand}"

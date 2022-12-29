@@ -1,7 +1,7 @@
 ﻿namespace _7GUIS.WPF.CRUD.Models;
 
-internal class Person
+public class Person
 {
-	internal string FirstName { get; set; } = "John";
-	internal string LastName { get; set; } = "Doe";
+	public string FirstName { get; set; } = "John";
+	public string LastName { get; set; } = "Doe";
 }

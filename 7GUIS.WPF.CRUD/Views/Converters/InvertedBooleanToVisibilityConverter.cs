@@ -11,7 +11,7 @@ internal class InvertedBooleanToVisibilityConverter : IValueConverter
 	{
 		if (value is bool _bool) return _bool ? Visibility.Collapsed : Visibility.Visible;
 
-		throw new Exception();
+		throw new ArgumentException($"{nameof(value)} was not of type {nameof(Boolean)}");
 	}
 
 	public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
